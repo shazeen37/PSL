@@ -8,7 +8,7 @@ const auth = require('../../middleware/auth');
 const DIR = '../../public/';
 let path = require('path');
 const Users = require('../../models/Users');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

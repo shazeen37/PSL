@@ -35,4 +35,4 @@ app.use('/api/dictionary', require('./routes/api/dictionary'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log('server started on port ${PORT}'));
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));

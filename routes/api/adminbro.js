@@ -43,6 +43,9 @@ const router = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
     }
     return null;
   },
+}, null, {
+  resave: false,
+  saveUninitialized: true,
 });
 
 module.exports = router;
