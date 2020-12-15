@@ -17,9 +17,18 @@ const UploadSchema = new Schema(
       type: String,
       default: 'general',
     },
+    dialect: {
+      type: String,
+      default: 'punjab',
+    },
     status: {
       type: String,
       default: 'pending',
+    },
+    rating: {
+      type: Number,
+      enum: [1, 2, 3, 4, 5],
+      default: 1
     },
     date: {
       type: Date,

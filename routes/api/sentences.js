@@ -94,7 +94,6 @@ router.delete('/:sentence', [check('sentence', 'Sentence is required').not().isE
         };
 
         const sentence = await Sentence.deleteOne(query);
-        console.log(sentence);
         res.status(200).send('Sentence deleted successfully!!!');
     } catch (err) {
         console.error(err.message);

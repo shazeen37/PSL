@@ -61,4 +61,37 @@ router.get('/search/Food', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// Advance search by different parameters
+router.post('/search/advance', async (req, res) => {
+  try {
+    let query = { };
+
+    if (req.body.gestureName) {
+      query = {
+        ...query,
+        gestureName: req.body.gestureName
+      };
+    }
+    if (req.body.dialect) {
+      query = {
+        ...query,
+        dialect: req.body.dialect
+      };
+    }
+    if (req.body.rating) {
+      query = {
+        ...query,
+        rating: req.body.rating
+      };
+    }
+
+    const words = await Upload.find(query);
+    res.json(words);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
