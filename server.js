@@ -31,6 +31,7 @@ app.use('/public', express.static('public'));
 app.use('/api/upload', require('./routes/api/upload'));
 app.use('/admin', require('./routes/api/adminbro'));
 app.use('/api/dictionary', require('./routes/api/dictionary'));
+app.use('/api/sentence', require('./routes/api/sentences'));
 
 
 const PORT = process.env.PORT || 5000;
