@@ -20,6 +20,8 @@ import alluploads from './components/dashboard/Uploads';
 import Review from './components/dashboard/Review';
 import Dictionary from './components/dictionary';
 import Translator from './components/translator';
+import Sentence  from './components/Sentence';
+import Footer from './components/layout/footer' 
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -59,6 +61,7 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <Route exact path='/dictionary' component={Dictionary} />
               <Route exact path='/translator' component={Translator} />
+              <Route exact path='/sentence' component={Sentence} />
               <PrivateRoute
                 exact
                 path='/Createprofile'
@@ -72,6 +75,7 @@ const App = () => {
               <PrivateRoute exact path='/upload' component={upload} />
             </switch>
           </section>
+          <Footer/>
         </Fragment>
       </Router>
     </Provider>

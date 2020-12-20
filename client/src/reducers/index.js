@@ -6,6 +6,7 @@ import profile from './profile';
 import post from './post';
 import uploads from './uploads';
 import dictionary from './dictionary';
+import sentences from './sentense'
 export default combineReducers({
   alert,
   auth,
@@ -13,4 +14,5 @@ export default combineReducers({
   post,
   uploads,
   dictionary,
+  sentences
 });

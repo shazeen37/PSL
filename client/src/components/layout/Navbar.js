@@ -25,6 +25,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/translator'>Translator</Link>
       </li>
+      <li>
+        <Link to='/sentence'>Sentence</Link>
+      </li>
     </ul>
   );
 
@@ -43,7 +46,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/login'>Login</Link>
       </li>
+      <li>
+        <Link to='/sentence'>Sentence</Link>
+      </li>
     </ul>
+    
   );
 
   return (

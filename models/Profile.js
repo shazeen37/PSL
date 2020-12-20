@@ -8,7 +8,7 @@ const ProfileSchema = new mongoose.Schema({
 
   status: {
     type: String,
-    required: true
+    default: 'contibuter',
   },
 
   bio: {
