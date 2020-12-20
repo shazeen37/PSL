@@ -19,7 +19,11 @@ const UserSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    default: 'contributer',
+    default: 'contributer'
+  },
+  status: {
+    type: String,
+    default: 'available'
   },
   date: {
     type: Date,

@@ -178,7 +178,7 @@ router.post('/forgot-password', [check('email', 'Please include a valid email').
                            </tr>
                            <tr>
                                <td style="text-align:center;">
-                                   <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.restaurant.com</strong></p>
+                                   <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.psl.com</strong></p>
                                </td>
                            </tr>
                            <tr>
