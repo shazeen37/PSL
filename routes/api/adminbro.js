@@ -1,4 +1,5 @@
 const AdminBro = require('admin-bro');
+const bcrypt = require('bcryptjs');
 const AdminBroExpressjs = require('admin-bro-expressjs');
 const AdminBroMongoose = require('admin-bro-mongoose');
 const user = require('../../models/Users');
@@ -18,7 +19,31 @@ const adminBro = new AdminBro({
           name: 'Admin Content',
           icon: 'fas fa-cogs',
         },
-      },
+        actions: {
+          new: {
+            before: async (request) => {
+              if(request.payload.password) {
+                request.payload = {
+                  ...request.payload,
+                  password: await bcrypt.hash(request.payload.password, 10)
+                }
+              }
+              return request
+            },
+          },
+          edit: { 
+            before: async (request) => {
+              if(request.payload.password) {
+                request.payload = {
+                  ...request.payload,
+                  password: await bcrypt.hash(request.payload.password, 10)
+                }
+              }
+              return request
+            },
+          }
+        }
+      }
     },
   ],
   rootPath: '/admin',
