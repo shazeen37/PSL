@@ -64,10 +64,10 @@ router.post('/', auth, upload.single('video'), async (req, res, next) => {
     })
 
     .catch((err) => {
-      console.log(err),
-        res.status(500).json({
-          error: err,
-        });
+      console.error(err);
+      res.status(500).json({
+        error: err,
+      });
     });
 });
 
@@ -84,7 +84,7 @@ router.get('/', async (req, res, next) => {
 router.get('/indiviual', async (req, res) => {
   try {
     const upload = await uploads.findOne({ status: 'pending' });
-    console.log(upload);
+
     if (!upload) {
       return res.status(404).json({
         msg: 'upload not found',

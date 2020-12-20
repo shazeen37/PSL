@@ -23,7 +23,7 @@ router.post(
         user: req.user.id,
         upload: upload,
       });
-      console.log(newDictionary);
+
       upload.save();
       const word = await newDictionary.save();
       res.json(word);
@@ -38,7 +38,6 @@ router.post(
 
 router.get('/search/:word', async (req, res) => {
   try {
-    console.log(req.params.word);
     const word = await Upload.find({
       gestureName: req.params.word,
       status: 'Approved',
