@@ -18,8 +18,8 @@ const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
   ) : (
     <Fragment>
       
-      <div class="rowG">
-  <div class="column" >
+      <div className="rowG">
+  <div className="column" >
   <div className='containier-fluid d-flex justify-content-center'>
           <div className='card text-center shadow'>
             <div className='overflow'>
@@ -41,9 +41,77 @@ const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
           </div>
         </div>
   </div>
-  <div class="column" >
-    <h2>Column 2</h2>
-    <p>Some text..</p>
+  <div className='column'>
+    <div className='mt-20'>
+      <div className='row border-underline'>
+        <div className='col-item text-center'>Evaluation</div>
+        <div className='col-rate'>5</div>
+        <div className='col-rate'>4</div>
+        <div className='col-rate'>3</div>
+        <div className='col-rate'>2</div>
+        <div className='col-rate'>1</div>
+      </div>
+    </div>
+    <div className='mt-20'>
+      <div className='row'>
+        <div className='col-item text-right px-2-c'>Shape</div>
+        <div className='col-rate'>5</div>
+        <div className='col-rate'>4</div>
+        <div className='col-rate'>3</div>
+        <div className='col-rate'>2</div>
+        <div className='col-rate'>1</div>
+      </div>
+    </div>
+    <div className='mt-20'>
+      <div className='row'>
+        <div className='col-item text-right px-2-c'>Location</div>
+        <div className='col-rate'>5</div>
+        <div className='col-rate'>4</div>
+        <div className='col-rate'>3</div>
+        <div className='col-rate'>2</div>
+        <div className='col-rate'>1</div>
+      </div>
+    </div>
+    <div className='mt-20'>
+      <div className='row'>
+        <div className='col-item text-right px-2-c'>Non-Manual Features</div>
+        <div className='col-rate'>5</div>
+        <div className='col-rate'>4</div>
+        <div className='col-rate'>3</div>
+        <div className='col-rate'>2</div>
+        <div className='col-rate'>1</div>
+      </div>
+    </div>
+    <div className='mt-20'>
+      <div className='row'>
+        <div className='col-item text-right px-2-c'>Orientation</div>
+        <div className='col-rate'>5</div>
+        <div className='col-rate'>4</div>
+        <div className='col-rate'>3</div>
+        <div className='col-rate'>2</div>
+        <div className='col-rate'>1</div>
+      </div>
+    </div>
+    <div className='mt-20 mb-20'>
+      <div className='row'>
+        <div className='col-item text-right px-2-c'>Movement</div>
+        <div className='col-rate'>5</div>
+        <div className='col-rate'>4</div>
+        <div className='col-rate'>3</div>
+        <div className='col-rate'>2</div>
+        <div className='col-rate'>1</div>
+      </div>
+    </div>
+    <div className='mt-60'>
+      <div className='row border-upperline'>Overall Decision</div>
+    </div>
+    <div className='mt-20'>
+      <div className='row'>
+        <div className='col-accept'>Accept</div>
+        <div className='col-reject'>Reject</div>
+        <div className='col-pendng'>Pending</div>
+      </div>
+    </div>
   </div>
 </div>
     

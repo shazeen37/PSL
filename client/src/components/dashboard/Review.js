@@ -19,10 +19,9 @@ const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
   }, [getUpload]);
   const [status, setstatus] = useState('');
   return loading || upload === null ? (
-    <div>Loading ....</div>
+    <div>No post found to be reviewed</div>
   ) : (
     <Fragment>
-      <container>
         <div className='containier-fluid d-flex justify-content-center'>
           <div className='card text-center shadow'>
             <div className='overflow'>
@@ -42,7 +41,7 @@ const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  giveReview({ status });
+                  // giveReview({ status });
                 }}
               >
                <Link to={`/review/${upload._id}`} className='btn btn-primary my-1' >Give Review</Link>
@@ -51,7 +50,6 @@ const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
             </div>
           </div>
         </div>
-      </container>
     </Fragment>
   );
 };

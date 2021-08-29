@@ -15,13 +15,12 @@ const Dashboard = ({
   auth: { user },
   profile: { profile, loading },
 }) => {
+  const [displayuserpost, toggleDUP] = useState(true);
+  const [displayuserreview, toggleDUR] = useState(false);
+
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);
-
-  const [displayuserpost, toggleDUP] = useState(true);
-  const [displayusercall, toggleDUC] = useState(false);
-  const [displayuserreview, toggleDUR] = useState(false);
 
   return loading && profile == null ? (
     <h1 className='large text=primary'>Dashboard</h1>
@@ -90,49 +89,19 @@ const Dashboard = ({
               <ul>
                 <li
                   onClick={() => {
-                    if (displayuserpost === false) {
-                      toggleDUP(!displayuserpost);
-                    }
-                    if (displayusercall === true) {
-                      toggleDUC(!displayusercall);
-                    }
-                    if (displayuserreview === true) {
-                      toggleDUR(!displayuserreview);
-                    }
+                    toggleDUP(!displayuserpost);
+                    toggleDUR(!displayuserreview);
                   }}
-                  className='user-post active'
+                  className={'user-post ' + (displayuserpost ? 'active' : '')}
                 >
                   Posts
                 </li>
                 <li
                   onClick={() => {
-                    if (displayuserpost === true) {
-                      toggleDUP(!displayuserpost);
-                    }
-                    if (displayusercall === false) {
-                      toggleDUC(!displayusercall);
-                    }
-                    if (displayuserreview === true) {
-                      toggleDUR(!displayuserreview);
-                    }
+                    toggleDUP(!displayuserpost);
+                    toggleDUR(!displayuserreview);
                   }}
-                  className='user-review'
-                >
-                  Calls For Gesture
-                </li>
-                <li
-                  onClick={() => {
-                    if (displayuserpost === true) {
-                      toggleDUP(!displayuserpost);
-                    }
-                    if (displayusercall === true) {
-                      toggleDUC(!displayusercall);
-                    }
-                    if (displayuserreview === false) {
-                      toggleDUR(!displayuserreview);
-                    }
-                  }}
-                  className='user-setting'
+                  className={'user-setting ' + (displayuserreview ? 'active' : '')}
                 >
                   Review
                 </li>
@@ -147,24 +116,6 @@ const Dashboard = ({
                   </div>
                 </Fragment>
               )}
-              {displayusercall ? (
-                <Fragment>
-                  <div>
-                    <h1>Calls for Gesture</h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                      Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                      natoque penatibus et magnis dis parturient montes,
-                      nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                      pellentesque eu, pretium quis, sem. Nulla consequat massa
-                      quis enim. Donec pede justo, fringilla vel, aliquet nec,
-                      vulputate eget, arcu.
-                    </p>
-                  </div>
-                </Fragment>
-              ) : (
-                <Fragment></Fragment>
-              )}
               {displayuserreview ? (
                 <Fragment>
                   <div className='tabcontainer'>
@@ -174,7 +125,6 @@ const Dashboard = ({
               ) : (
                 <Fragment></Fragment>
               )}
-              <Uploads />
             </div>
           </div>
         </div>

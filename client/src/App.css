@@ -70,6 +70,10 @@ img {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-primary {
   color: var(--primary-color);
 }
@@ -103,6 +107,12 @@ img {
 .py-3 {
   padding: 3rem 0;
 }
+.px-2-c {
+  padding: 0 2rem;
+}
+.pl-15 {
+  padding-left: 15px;
+}
 
 /* Margin */
 .m {
@@ -128,6 +138,41 @@ img {
 }
 .my-3 {
   margin: 3rem 0;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.col-item {
+  width: 40%;
+}
+
+.col-rate {
+  width: 12%;
+}
+
+.col-accept {
+  width: 33%;
+}
+.col-reject {
+  width: 33%;
+}
+.col-pendng {
+  width: 33%;
+}
+
+.border-underline {
+  border-bottom: 1px solid #020208 !important;
+}
+
+.border-upperline {
+  border-top: 1px solid #020208 !important;
 }
 
 .btn {
@@ -788,6 +833,7 @@ button.createbtn:hover i {
 }
 .right-side {
   float: right;
+  width: 100%;
 }
 .navi {
   width: 100%;
