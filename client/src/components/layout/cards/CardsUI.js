@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './card-style.css';
-import ReactPlayer from 'react-player';
 import img1 from '../../../img/vector-video-player-941434_1280.png';
 
 const Card = () => {

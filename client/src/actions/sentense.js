@@ -19,6 +19,8 @@ export const givetranslation = (sentence,translation) => async (dispatch) => {
   } catch (errors) {
    
     errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    await axios.post('/api/dictionary', formData, config);
+  
 
   }
 };

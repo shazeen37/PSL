@@ -7,6 +7,8 @@ const formidableMiddleware = require('express-formidable');
 const AdminBro = require('admin-bro');
 const AdminBroExpressjs = require('admin-bro-expressjs');
 
+const expressValidator = require('express-validator');
+
 //app.set('view engine', ejs);
 
 //connect Database
@@ -32,6 +34,7 @@ app.use('/api/upload', require('./routes/api/upload'));
 app.use('/admin', require('./routes/api/adminbro'));
 app.use('/api/dictionary', require('./routes/api/dictionary'));
 app.use('/api/sentence', require('./routes/api/sentences'));
+app.use('/api/review', require('./routes/api/review'));
 
 
 const PORT = process.env.PORT || 5000;

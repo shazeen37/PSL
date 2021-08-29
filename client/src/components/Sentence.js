@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getsentence, givetranslation } from '../actions/sentense';
+import { getsentence } from '../actions/sentense';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
 import { useSelector } from 'react-redux' ;

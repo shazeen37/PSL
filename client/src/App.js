@@ -14,23 +14,18 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import Createprofile from './components/profile-form/Createprofile';
 import Editprofile from './components/profile-form/Editprofile';
 import Profiles from './components/profiles/Profiles';
-import Post from './components/Posts/Post-form';
 import upload from './components/Posts/upload';
-import alluploads from './components/dashboard/Uploads';
-import Review from './components/dashboard/Review';
 import Dictionary from './components/dictionary';
 import Translator from './components/translator';
 import Sentence  from './components/Sentence';
-import Footer from './components/layout/footer' 
+import Footer from './components/layout/footer';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
-import ourteam from './components/layout/ourteam'
 
 import { loadUser } from './actions/auth';
 
 import './App.css';
-import { dictionary } from './components/dictionary';
 import Ourteam from './components/layout/ourteam';
 import ReviewGS from './components/dashboard/ReviewUI'
 if (localStorage.token) {
@@ -55,8 +50,13 @@ const App = () => {
 
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <section className='container'>
+<<<<<<< HEAD
            
             <switch>
+=======
+            <Alerts />
+            <Switch>
+>>>>>>> 0cc078346183a5153befb7001cc45faaf6510b25
               <Route exact path='/register' component={Register} />
               <Route exact path='/Profiles' component={Profiles} />
               <Route exact path='/login' component={Login} />
@@ -79,7 +79,7 @@ const App = () => {
                 component={Editprofile}
               />
               <PrivateRoute exact path='/upload' component={upload} />
-            </switch>
+            </Switch>
           </section>
           <Footer/>
         </Fragment>
