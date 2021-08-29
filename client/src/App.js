@@ -50,13 +50,8 @@ const App = () => {
 
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <section className='container'>
-<<<<<<< HEAD
-           
-            <switch>
-=======
             <Alerts />
             <Switch>
->>>>>>> 0cc078346183a5153befb7001cc45faaf6510b25
               <Route exact path='/register' component={Register} />
               <Route exact path='/Profiles' component={Profiles} />
               <Route exact path='/login' component={Login} />
