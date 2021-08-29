@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { setAlert } from '../../actions/alert';
 import { Progress } from 'reactstrap';
-import { Link, withRouter } from 'react-router-dom';
-import { Alert } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

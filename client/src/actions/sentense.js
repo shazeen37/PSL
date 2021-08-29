@@ -11,7 +11,7 @@ export const givetranslation = (formData) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.post('/api/dictionary', formData, config);
+    await axios.post('/api/dictionary', formData, config);
   
 
     dispatch(setAlert('Thanks For Contributing', 'success'));

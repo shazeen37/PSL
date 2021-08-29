@@ -79,7 +79,7 @@
         tab.forEach(function (node) {
           node.style.display = 'none';
         });
-        tabs[panelIndex].style.display = 'block';
+        tabs[panelIndex] ? tabs[panelIndex].style.display = 'block': null;
       }
       tabs(0);
     </script>

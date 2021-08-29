@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import GestureUI from './GesturesUI';
 import Category from './category';
 import PropTypes from 'prop-types';

@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import './UploadsStyles.css';
 import ReactPlayer from 'react-player';
-import { getUploads } from '../../actions/uploads';
 
 const UploadUI = ({
   auth,
@@ -22,11 +21,11 @@ const UploadUI = ({
       <p className='post-date'>
         Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>
-      <Link to='/edit-Upload' class='btn btn-light'>
-        <i class='far fa-edit text-primary'></i> Edit
+      <Link to='/edit-Upload' className='btn btn-light'>
+        <i className='far fa-edit text-primary'></i> Edit
       </Link>
-      <Link to='/delete' class='btn btn-light'>
-        <i class='far fa-trash-alt text-primary'></i> Delete
+      <Link to='/delete' className='btn btn-light'>
+        <i className='far fa-trash-alt text-primary'></i> Delete
       </Link>
     </div>
   </div>

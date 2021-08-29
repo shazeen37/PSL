@@ -22,20 +22,18 @@ const Uploads = ({ getUploads, uploads: { uploads, loading } }) => {
     <div>Loading ....</div>
   ) : (
     <Fragment>
-      <container>
-        <div className='containier-fluid d-flex justify-content-center'>
-          <div className='row'>
-            <div className='col'>
-              <div className='col-md-4'>
-                {' '}
-                {uploads.map((uploads) => (
-                  <UploadsUI key={uploads._id} uploads={uploads} />
-                ))}
-              </div>
+      <div className='containier-fluid d-flex justify-content-center'>
+        <div className='row'>
+          <div className='col'>
+            <div className='col-md-4'>
+              {' '}
+              {uploads.map((uploads) => (
+                <UploadsUI key={uploads._id} uploads={uploads} />
+              ))}
             </div>
           </div>
         </div>
-      </container>
+      </div>
     </Fragment>
   );
 };

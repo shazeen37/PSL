@@ -27,7 +27,7 @@ const Dashboard = ({
     <h1 className='large text=primary'>Dashboard</h1>
   ) : (
     <Fragment>
-      <div className='dashboard'>
+      {user && profile && <div className='dashboard'>
         <div className='profile-header'>
           <div className='profile-img'>
             <img src={user.avatar} alt='image 1/' width='200' />
@@ -174,11 +174,11 @@ const Dashboard = ({
               ) : (
                 <Fragment></Fragment>
               )}
-              <uploads />
+              <Uploads />
             </div>
           </div>
         </div>
-      </div>
+      </div>}
     </Fragment>
   );
 };

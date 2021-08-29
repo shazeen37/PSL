@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setAlert } from './alert';
 import { GET_UPLOADS, UPLOADS_ERROR, GET_UPLOAD, UPLOAD_ERROR } from './types';
 
 //Get Upload

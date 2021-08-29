@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import ReactCardCarousel from 'react-card-carousel';
-import Card from './CardsUI';
 import './card-style.css';
-import { Container } from 'reactstrap';
 import ReactPlayer from 'react-player';
 class MyCarousel extends Component {
   
