@@ -18,9 +18,10 @@ class MyCarousel extends Component {
     <a href="#">
       <div >
       <ReactPlayer
-          url='../../../../../public/4b114fd3-e117-418b-a792-3b859e3fff60-hand_close7.mp4'
+          url='../../../../../public/production ID_2.mp4'
           playing
           loop
+         
           
         />
       </div></a>
@@ -34,9 +35,10 @@ class MyCarousel extends Component {
     <a href="#">
       <div >
       <ReactPlayer
-          url='../../../../../public/4b114fd3-e117-418b-a792-3b859e3fff60-hand_close7.mp4'
+          url='../../../../../public/production ID_5.mp4'
           playing
           loop
+         
           
         />
       </div></a>
@@ -50,9 +52,10 @@ class MyCarousel extends Component {
     <a href="#">
       <div >
       <ReactPlayer
-          url='../../../../../public/4b114fd3-e117-418b-a792-3b859e3fff60-hand_close7.mp4'
+          url='../../../../../public/production ID_8.mp4'
           playing
           loop
+         
           
         />
       </div></a>

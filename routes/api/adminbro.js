@@ -3,10 +3,14 @@ const bcrypt = require('bcryptjs');
 const AdminBroExpressjs = require('admin-bro-expressjs');
 const AdminBroMongoose = require('admin-bro-mongoose');
 const user = require('../../models/Users');
-
+const sentences= require('../../models/Sentences')
+const uploads = require('../../models/Uploads');
+const Dictionary = require('../../models/Dictionary');
+const Profile = require('../../models/Profile');
 // We have to tell AdminBro that we will manage mongoose resources with it
 AdminBro.registerAdapter(require('admin-bro-mongoose'));
 const mongoose = require('mongoose');
+
 
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
@@ -44,7 +48,25 @@ const adminBro = new AdminBro({
           }
         }
       }
+      
+      
     },
+    { resource: sentences, options: { parent: {
+      name: 'Admin Content',
+      icon: 'fas fa-cogs',
+    } } },
+    { resource: uploads, options: { parent: {
+      name: 'Admin Content',
+      icon: 'fas fa-cogs',
+    } } },
+    { resource: Dictionary, options: { parent: {
+      name: 'Admin Content',
+      icon: 'fas fa-cogs',
+    } } },
+    { resource: Profile, options: { parent: {
+      name: 'Admin Content',
+      icon: 'fas fa-cogs',
+    } } },
   ],
   rootPath: '/admin',
   branding: {

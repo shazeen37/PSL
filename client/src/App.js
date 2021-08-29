@@ -32,7 +32,7 @@ import { loadUser } from './actions/auth';
 import './App.css';
 import { dictionary } from './components/dictionary';
 import Ourteam from './components/layout/ourteam';
-
+import ReviewGS from './components/dashboard/ReviewUI'
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -46,6 +46,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
+        <Alerts />
           <Navbar />
           <Route exact path='/' component={Landing} />
           <Route exact path='/' component={cards} />
@@ -54,7 +55,7 @@ const App = () => {
 
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <section className='container'>
-            <Alerts />
+           
             <switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/Profiles' component={Profiles} />
@@ -66,6 +67,11 @@ const App = () => {
                 exact
                 path='/Createprofile'
                 component={Createprofile}
+              />
+                <Route
+                exact
+                path='/review/:id'
+                component={ReviewGS}
               />
               <PrivateRoute
                 exact

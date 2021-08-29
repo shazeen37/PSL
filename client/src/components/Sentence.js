@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getsentence } from '../actions/sentense';
+import { getsentence, givetranslation } from '../actions/sentense';
 import PropTypes from 'prop-types'; 
-import { connect } from 'react-redux' 
-export const Sentense = ({getsentence,sentences: { sentence, loading }}) => {
+import { connect } from 'react-redux';
+import { useSelector } from 'react-redux' ;
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loading2 }}) => {
+  
+  const [translation, settranslation] = useState(null);
+  const [Ssentence, setSsentence] = useState('');
+  const data = useSelector(state => sentence)
   useEffect(() => {
     getsentence();
+    setSsentence(loading2 || !sentence.sentence ? '' : sentence.sentence)
   }, [getsentence]);
-  const [Data, setData] = useState(null);
-  const [Ssentence, setsentence] = useState(null);
-
   
-  return (
+ 
+ 
+  
+  return loading2  ?(<p>loading..</p>):(
     <div className='active-cyan-3 active-cyan-4 mb-4'>
       <p></p>
       <div className='card ' style={{ height: '10rem', width: '70rem' }}>
@@ -23,17 +32,29 @@ export const Sentense = ({getsentence,sentences: { sentence, loading }}) => {
           Translation Needed for this English Sentense
         </div>
         <div className='card-body' style={{ height: '10rem', width: '65rem' }}>
-          <h4 className='containier-fluid d-flex justify-content-center'>
+        <h4 className='containier-fluid d-flex justify-content-center'>
             {' '}
             {'  '}
-            {Data}
+            
+          {Ssentence}
           </h4>
         </div>
       </div>
      <div className='margin'>
       <form
         onSubmit={(e) => {
-          e.preventDefault();
+         
+        
+          console.log("Hello")
+          if(translation==null){ 
+            console.log("HelloW")
+            toast.warn(
+            'Enter Something To submit! '
+          );}
+          else{
+            e.preventDefault();
+            console.log('helloSs')
+          givetranslation(Ssentence,translation)}
           
         }}
       >
@@ -42,8 +63,8 @@ export const Sentense = ({getsentence,sentences: { sentence, loading }}) => {
           type='text'
           placeholder='Enter Your Sign language Translation here'
           aria-label='Search'
-          value={Ssentence}
-          onChange={(e) => setsentence(e.target.value)}
+          value={translation}
+          onChange={(e) => settranslation(e.target.value)}
         />
         <div className='containier-fluid d-flex justify-content-center'>
           <input type='submit' className='btn btn-Success' />
@@ -55,10 +76,11 @@ export const Sentense = ({getsentence,sentences: { sentence, loading }}) => {
 };
 Sentense.propTypes = {
   getsentence: PropTypes.func.isRequired,
-  sentences: PropTypes.object.isRequired,
+  givetranslation: PropTypes.func.isRequired,
+  sentence: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
-  sentences: state.sentences,
+  sentence: state.sentence,
 });
-export default connect(mapStateToProps, { getsentence })(Sentense);
+export default connect(mapStateToProps, { getsentence, givetranslation })(Sentense);
 

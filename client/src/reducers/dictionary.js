@@ -1,4 +1,4 @@
-import { GIVE_REVIEW, REVIEW_ERROR, SEARCH } from '../actions/types';
+import { GIVE_REVIEW, REVIEW_ERROR } from '../actions/types';
 
 const initialState = {
   dictionary: null,
@@ -16,12 +16,7 @@ export default function (state = initialState, action) {
         dictionarys: [...state.dictionarys, payload],
         loading: false,
       };
-    case SEARCH:
-      return {
-        ...state,
-        dictionarys: payload,
-        loadding: false,
-      };
+   
     case REVIEW_ERROR:
       return {
         ...state,

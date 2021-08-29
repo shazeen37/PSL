@@ -64,6 +64,7 @@ router.get('/:sentence', [check('sentence', 'Sentence is required').not().isEmpt
 // Update translations by sentence key
 router.put('/:sentence', [check('sentence', 'Sentence is required').not().isEmpty()], async (req, res) => {
     try {
+        console.log('Hello API')
         let query = {
             sentenceKey: req.params.sentence.toLowerCase()
         };
@@ -113,8 +114,10 @@ router.get('/daily/random', async (req, res) => {
             res.json({});
             return;
         }
+     
 
         let index = Math.floor(Math.random() * ((sentences.length - 1) - 0 + 1) + 0);
+       
         res.json(sentences[index]);
     } catch (err) {
         console.error(err.message);

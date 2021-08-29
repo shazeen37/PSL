@@ -3,7 +3,7 @@ import { GET_SENTENSE, GET_SENTENSE_ERROR } from '../actions/types';
 const initialState = {
   sentence: null,
   sentences: [],
-  loading: true,
+  loading2: true,
   error: {},
 };
 
@@ -14,14 +14,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         sentence: payload,
-        loading: false,
+        loading2: false,
       };
     
     case GET_SENTENSE_ERROR:
       return {
         ...state,
         error: payload,
-        loading: false,
+        loading2: false,
       };
     default:
       return state;

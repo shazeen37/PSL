@@ -26,7 +26,8 @@ var upload = multer({
     if (
       file.mimetype == 'video/mp4' ||
       file.mimetype == 'Video/mpg' ||
-      file.mimetype == 'video/avi'
+      file.mimetype == 'video/avi' ||
+      file.mimetype == 'video/mov'
     ) {
       cb(null, true);
     } else {

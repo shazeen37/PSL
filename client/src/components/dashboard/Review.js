@@ -45,17 +45,8 @@ const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
                   giveReview({ status });
                 }}
               >
-                <div className='form-group'>
-                  <select
-                    name='text'
-                    value={status}
-                    onChange={(e) => setstatus(e.target.value)}
-                  >
-                    <option value='Rejected'>Rejected</option>
-                    <option value='Approved'>Approved</option>
-                  </select>
-                </div>
-                <input type='submit' className='btn btn-primary my-1' />
+               <Link to={`/review/${upload._id}`} className='btn btn-primary my-1' >Give Review</Link>
+               
               </form>
             </div>
           </div>
