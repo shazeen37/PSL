@@ -5,13 +5,11 @@ import PropTypes from 'prop-types';
 import { search } from '../actions/dictionary';
 import { connect } from 'react-redux';
 
-const DictionaryPage = ({ search, dictionary: { dictionarys, loading } }) => {
-  useEffect(() => {
-    search();
-  }, [search]);
+const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => {
+
   const [word, setword] = useState('');
   console.log(word);
-  console.log(dictionarys);
+  console.log(results);
   return (
     <div>
       <h3>Search Gesture by Word</h3>
@@ -37,12 +35,12 @@ const DictionaryPage = ({ search, dictionary: { dictionarys, loading } }) => {
       </form>
 
       <div>
-        <Category />
+      
       </div>
 
-      {loading && dictionarys === null ? (
+      {resultsloading  ? (
         <Fragment>
-          <h3>loading</h3>
+          <Category />
         </Fragment>
       ) : (
         <Fragment>
@@ -51,7 +49,7 @@ const DictionaryPage = ({ search, dictionary: { dictionarys, loading } }) => {
               <div className='row'>
                 <div className='col'>
                   <div className='col-md-4'>
-                    {dictionarys.map((dictionary) => (
+                    {results.map((dictionary) => (
                       <GestureUI key={dictionary._id} dictionary={dictionary} />
                     ))}
                   </div>
