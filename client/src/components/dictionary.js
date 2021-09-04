@@ -4,7 +4,7 @@ import Category from './category';
 import PropTypes from 'prop-types';
 import { search } from '../actions/dictionary';
 import { connect } from 'react-redux';
-
+import { Link, Redirect } from 'react-router-dom';
 const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => {
 
   const [word, setword] = useState('');
@@ -57,6 +57,9 @@ const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => 
                 </div>
               </div>
             </div>
+            <div className='containier-fluid d-flex justify-content-center'>
+            <button className='btn btn-Success' onClick={(e) =>(window.location.reload(false))}>Go back</button>
+         </div>
           </div>
         </Fragment>
       )}

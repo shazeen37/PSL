@@ -33,12 +33,10 @@ export const saveReview = (formData) => async (dispatch) => {
     },
   };
   try {
+    console.log('Hello give review')
     const res = await axios.post('/api/review', formData, config);
-    dispatch({
-      type: GET_UPLOAD,
-      payload: null,
-    });
-
+    console.log(res)
+    
     dispatch(setAlert('Review saved successfully', 'success'));
   } catch (err) {
     dispatch({

@@ -28,11 +28,10 @@ async (req, res) => {
     try {
         let review = await Review.findOne({ editor: req.user.id, gesture: req.body.uploadId });
         let upload = await Upload.findOne({ _id: req.body.uploadId });
-        if (review) {
-            return res.status(400).json({ errors: [{ msg: 'Review already submitted' }] });
-        }
+    
         if (!upload) {
-            return res.status(400).json({ errors: [{ msg: 'Gesture not found' }] });
+            console.log('Review already submitted')
+            return res.status(401).json({ errors: [{ msg: 'Gesture not found' }] });
         }
 
         review = new Review({

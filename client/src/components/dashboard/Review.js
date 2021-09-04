@@ -34,6 +34,7 @@ const Review = ({ getUpload, uploads: { upload, loading } }) => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
+                  
                 }}
               >
                <Link to={`/review/${upload._id}`} className='btn btn-primary my-1' >Give Review</Link>

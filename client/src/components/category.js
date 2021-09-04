@@ -1,7 +1,7 @@
 import React from 'react';
 import { searchByCategory } from '../actions/dictionary';
 import { connect } from 'react-redux';
-
+import { Link, Redirect } from 'react-router-dom';
 const category = ({ searchByCategory }) => {
   return (
     <div>
@@ -64,7 +64,10 @@ const category = ({ searchByCategory }) => {
           <i className='fas fa-utensils w3-xxxlarge'></i>
           Food
         </a>
+
+        
       </div>
+      
     </div>
   );
 };
