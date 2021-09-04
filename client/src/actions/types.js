@@ -23,6 +23,7 @@ export const UPLOAD_ERROR = 'UPLOAD_ERROR';
 export const GIVE_REVIEW = 'GIVE_REVIEW';
 export const REVIEW_ERROR = 'REVIEW_ERROR';
 export const SEARCH = 'SEARCH';
+export const CANCEL_SEARCH = 'CANCEL_SEARCH';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
 export const GET_SENTENSE =  'GET_SENTENSE';
 export const GET_SENTENSE_ERROR =  'GET_SENTENSE_ERROR';

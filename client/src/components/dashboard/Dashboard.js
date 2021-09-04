@@ -28,7 +28,7 @@ const Dashboard = ({
     <h3 >loading...</h3>
   ) : (
     <Fragment>
-      {(!profile || !hasProfile) && <Redirect to='/Createprofile' />}
+      {(!profile && !hasProfile) && <Redirect to='/Createprofile' />}
       {user && profile && <div className='dashboard'>
         <div className='profile-header'>
           <div className='profile-img'>
@@ -87,8 +87,10 @@ const Dashboard = ({
               <ul>
                 <li
                   onClick={() => {
-                    toggleDUP(!displayuserpost);
-                    toggleDUR(!displayuserreview);
+                    if (user.type === 'reviewer') {
+                      toggleDUP(!displayuserpost);
+                      toggleDUR(!displayuserreview);
+                    }
                   }}
                   className={'user-post ' + (displayuserpost ? 'active' : '')}
                 >

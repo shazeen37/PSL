@@ -1,4 +1,4 @@
-import { GIVE_REVIEW, REVIEW_ERROR, SEARCH, SEARCH_ERROR, GET_UPLOAD } from '../actions/types';
+import { GIVE_REVIEW, REVIEW_ERROR, SEARCH, SEARCH_ERROR, GET_UPLOAD, CANCEL_SEARCH } from '../actions/types';
 
 const initialState = {
   dictionary: null,
@@ -32,6 +32,12 @@ export default function (state = initialState, action) {
           results: payload,
           resultsloading: false,
         };
+
+    case  CANCEL_SEARCH:
+      return {
+        ...state,
+        resultsloading: true,
+      };
      
    
     case SEARCH_ERROR:

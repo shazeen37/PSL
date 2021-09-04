@@ -2,10 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react';
 import GestureUI from './GesturesUI';
 import Category from './category';
 import PropTypes from 'prop-types';
-import { search } from '../actions/dictionary';
+import { search, cancelSearch } from '../actions/dictionary';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => {
+const DictionaryPage = ({ search, cancelSearch, dictionary: { results, resultsloading } }) => {
 
   const [word, setword] = useState('');
   console.log(word);
@@ -37,7 +37,6 @@ const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => 
       <div>
       
       </div>
-
       {resultsloading  ? (
         <Fragment>
           <h1 className='x-largee'>PSL Dictionary</h1>
@@ -54,12 +53,12 @@ const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => 
                       <GestureUI key={dictionary._id} dictionary={dictionary} />
                     ))}
                   </div>
+                  <div className='col-md-12'>
+                    <button type='button' className='btn btn-Success w-100-p' onClick={(e) => { cancelSearch() }}>Go back</button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className='containier-fluid d-flex justify-content-center'>
-            <button className='btn btn-Success' onClick={(e) =>(window.location.reload(false))}>Go back</button>
-         </div>
           </div>
         </Fragment>
       )}
@@ -68,9 +67,10 @@ const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => 
 };
 DictionaryPage.propTypes = {
   search: PropTypes.func.isRequired,
+  cancelSearch: PropTypes.func.isRequired,
   dictionary: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   dictionary: state.dictionary,
 });
-export default connect(mapStateToProps, { search })(DictionaryPage);
+export default connect(mapStateToProps, { search, cancelSearch })(DictionaryPage);

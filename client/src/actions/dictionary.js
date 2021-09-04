@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GIVE_REVIEW, REVIEW_ERROR, SEARCH, SEARCH_ERROR, GET_UPLOAD } from './types';
+import { GIVE_REVIEW, REVIEW_ERROR, SEARCH, SEARCH_ERROR, CANCEL_SEARCH } from './types';
 
 //Give Review
 export const giveReview = (formData) => async (dispatch) => {
@@ -77,5 +77,15 @@ export const searchByCategory = (category) => async (dispatch) => {
       type: SEARCH_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
+  }
+};
+//Go back
+export const cancelSearch = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: CANCEL_SEARCH,
+      payload: [],
+    });
+  } catch (err) {
   }
 };

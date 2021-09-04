@@ -14,7 +14,7 @@ const GesturesUI = ({
         </div>
         <div className='card-body text dark'>
           <h4 className='card-tital'> {gestureName} </h4>
-          <p>category: {category}</p>
+          <p>Category: {category}</p>
           <p>Region: Punjab</p>
         </div>
       </div>
