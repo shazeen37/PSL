@@ -18,10 +18,11 @@ export const getUpload = () => async (dispatch) => {
   }
 };
 //Get Uploads
-export const getUploads = () => async (dispatch) => {
+export const getUploads = (id) => async (dispatch) => {
   try {
-    const res = await axios.get('/api/upload');
-
+ 
+    const res = await axios.get(`/api/upload/${id}`);
+    console.log(`/api/upload/${id}`)
     dispatch({
       type: GET_UPLOADS,
       payload: res.data,

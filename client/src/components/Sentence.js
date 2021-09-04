@@ -23,8 +23,8 @@ export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loa
   
   return loading2  ?(<p>loading..</p>):(
     <div className='active-cyan-3 active-cyan-4 mb-4'>
-      <p></p>
-      <div className='card ' style={{ height: '10rem', width: '70rem' }}>
+      <p className='large'>Submit your suggestions to us!</p>
+   {sentence.sentence===('')?(<p>loading</p>):(      <div className='card ' style={{ height: '10rem', width: '70rem' }}>
         <div
           className='card-header'
           style={{ height: '10rem', width: '70rem' }}
@@ -36,10 +36,10 @@ export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loa
             {' '}
             {'  '}
             
-          {Ssentence}
+          {sentence.sentence}
           </h4>
         </div>
-      </div>
+      </div>)}
      <div className='margin'>
       <form
         onSubmit={(e) => {
@@ -66,6 +66,7 @@ export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loa
           value={translation}
           onChange={(e) => settranslation(e.target.value)}
         />
+             <small className='form-text'>Thank you for your feedback and being part of the community!</small>
         <div className='containier-fluid d-flex justify-content-center'>
           <input type='submit' className='btn btn-Success' />
         </div>

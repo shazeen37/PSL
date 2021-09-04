@@ -40,6 +40,7 @@ const DictionaryPage = ({ search, dictionary: { results, resultsloading } }) => 
 
       {resultsloading  ? (
         <Fragment>
+          <h1 className='x-largee'>PSL Dictionary</h1>
           <Category />
         </Fragment>
       ) : (

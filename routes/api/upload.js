@@ -44,15 +44,16 @@ router.post('/', auth, upload.single('video'), async (req, res, next) => {
   const userupload = new uploads({
     user: req.user.id,
     gestureName: req.body.gestureName,
-    video: url + '/public/' + req.file.filename
+    video: url + '/public/' + req.file.filename,
+    Region:req.body.Region,
   });
 
   userupload
     .save()
     .then(async (result) => {
-      const editor = await Users.findOne({ type: 'editor', status: 'available' });
+      const editor = await Users.findOne({ type: 'reviewer', status: 'available' });
       if (!editor) {
-        return res.status(400).json({ errors: [{ msg: 'No editor is available right now' }] });
+        return res.status(400).json({ errors: [{ msg: 'No reviewer is available right now' }] });
       }
 
       const editorReview = new reviews({
@@ -209,9 +210,9 @@ router.get('/indiviual', async (req, res) => {
 });
 
 //get user uploads
-router.get('/:id', auth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const Uploads = await uploads.findById(req.params.id);
+    const Uploads = await uploads.find({ user: req.params.id}).sort({ date: -1 });;
     if (!Uploads) {
       return res.status(404).json({
         msg: 'Uploads not found',

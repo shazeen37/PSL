@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './card-style.css';
 import ReactPlayer from 'react-player';
+import { Link, Redirect } from 'react-router-dom';
 class MyCarousel extends Component {
   
 
@@ -23,7 +24,7 @@ class MyCarousel extends Component {
         />
       </div></a>
     <div class="property-description">
-      <h5> Drinking </h5>
+      <h5> Thank You </h5>
       <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
     </div>
     
@@ -40,7 +41,7 @@ class MyCarousel extends Component {
         />
       </div></a>
     <div class="property-description">
-      <h5> Eating </h5>
+      <h5> Hello </h5>
       <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
     </div>
     
@@ -57,7 +58,7 @@ class MyCarousel extends Component {
         />
       </div></a>
     <div class="property-description">
-      <h5> Playing </h5>
+      <h5> Good Morning </h5>
       <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
     </div>
     
@@ -67,9 +68,7 @@ class MyCarousel extends Component {
 
        
         <div className='containier-fluid d-flex justify-content-center'>
-          <a herf='#' className='btn btn-Success'>
-            Search
-          </a>
+        <Link to='/dictionary' className='btn btn-Success'>Search</Link>
         </div>
       </section>
     );

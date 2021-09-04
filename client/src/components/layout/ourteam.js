@@ -20,8 +20,8 @@ return<div>
                     </ul>
                 </div>
                 <div class="team-content">
-                    <h3 class="title">Kristiana</h3>
-                    <span class="post">Web Developer</span>
+                    <h3 class="title">UZMA FAROOQ</h3>
+                    <span class="post">Professor</span>
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@ return<div>
                     </ul>
                 </div>
                 <div class="team-content">
-                    <h3 class="title">Williamson</h3>
-                    <span class="post">Web Designer</span>
+                    <h3 class="title">ADNAN ABID</h3>
+                    <span class="post">Professor</span>
                 </div>
             </div>
         </div>
@@ -54,8 +54,8 @@ return<div>
                     </ul>
                 </div>
                 <div class="team-content">
-                    <h3 class="title">Kristiana</h3>
-                    <span class="post">Web Designer</span>
+                    <h3 class="title">NABEEL SABIR KHAN</h3>
+                    <span class="post">Professor</span>
                 </div>
             </div>
         </div>

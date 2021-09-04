@@ -41,7 +41,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-        <Alerts />
+  
           <Navbar />
           <Route exact path='/' component={Landing} />
           <Route exact path='/' component={cards} />

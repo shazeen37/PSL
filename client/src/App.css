@@ -5,7 +5,7 @@
   --dark-color: #020202;
   --light-color: #f4f4f4;
   --danger-color: #dd3647;
-  --success-color: #28a745;
+  --success-color: #088f28;
 }
 
 * {
@@ -981,8 +981,8 @@ button.createbtn:hover i {
 
 .containerG {
   margin-top: 50px;
-  width: 1170px;
-  margin-left:150px;
+  width: 80%;
+  margin-left:10%;
 }
 .our-team{
   text-align: center;
@@ -1079,7 +1079,7 @@ button.createbtn:hover i {
 }
 
 .headingteam {
-  color: rgb(29, 29, 29);
+  color: rgb(4 216 220);
   font-size: 50px;
   font-weight: 600;
   text-transform: capitalize;
@@ -1093,8 +1093,8 @@ button.createbtn:hover i {
 }
 .text-centerr {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: -20px;
+  margin-top: 70px;
+  /* margin-bottom: -20px; */
 }
 .margin{
   margin-top: 50px
@@ -1106,6 +1106,15 @@ footer{
 	position: relative;
 	bottom: 0;
 }
+
+.x-largee {
+  text-align: center;
+  /* font-size: 4rem; */
+  /* line-height: 1.2; */
+  margin-top: 60px;
+  color: #495057;
+  /* margin-bottom: 1rem; */
+}
 .footer-distributed{
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -1113,9 +1122,8 @@ footer{
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
- 
-	padding: 55px 50px;
-	margin-top: 80px;
+  padding: 55px 50px;
+
 }
  
 .footer-distributed .footer-left,

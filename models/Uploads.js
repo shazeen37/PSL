@@ -17,7 +17,7 @@ const UploadSchema = new Schema(
       type: String,
       default: 'general',
     },
-    dialect: {
+    Region: {
       type: String,
       default: 'punjab',
     },
