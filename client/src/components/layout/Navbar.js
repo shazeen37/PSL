@@ -13,11 +13,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           {'  '}
           <span className='hide-sm'>Dashboard</span>
         </Link>
-        <a onClick={logout} href='#!'>
-          <i className='fas fa-sign-out-alt'></i>
-          {'  '}
-          <span className='hide-sm'>Logout</span>
-        </a>
       </li>
       <li>
         <Link to='/dictionary'>Dictionary</Link>
@@ -27,6 +22,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li>
         <Link to='/sentence'>Sentence</Link>
+      </li>
+      <li>
+      <a onClick={logout} href='#!'>
+          <i className='fas fa-sign-out-alt'></i>
+          {'  '}
+          <span className='hide-sm'>Logout</span>
+        </a>
       </li>
     </ul>
   );
@@ -39,6 +41,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/translator'>Translator</Link>
       </li>
+      <li>
+        <Link to='/sentence'>Sentence</Link>
+      </li>
 
       <li>
         <Link to='/register'>Register</Link>
@@ -46,9 +51,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/login'>Login</Link>
       </li>
-      <li>
-        <Link to='/sentence'>Sentence</Link>
-      </li>
+     
     </ul>
     
   );

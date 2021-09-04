@@ -25,7 +25,7 @@ const Dashboard = ({
 
 
   return loading && profile == null ? (
-    <h1 className='large text=primary'>Dashboard</h1>
+    <h3 >loading...</h3>
   ) : (
     <Fragment>
       {user && profile && <div className='dashboard'>

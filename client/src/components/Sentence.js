@@ -24,7 +24,7 @@ export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loa
   return loading2  ?(<p>loading..</p>):(
     <div className='active-cyan-3 active-cyan-4 mb-4'>
       <p className='large'>Submit your suggestions to us!</p>
-      <div className='card ' style={{ height: '10rem', width: '70rem' }}>
+   {sentence.sentence===('')?(<p>loading</p>):(      <div className='card ' style={{ height: '10rem', width: '70rem' }}>
         <div
           className='card-header'
           style={{ height: '10rem', width: '70rem' }}
@@ -36,10 +36,10 @@ export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loa
             {' '}
             {'  '}
             
-          {Ssentence}
+          {sentence.sentence}
           </h4>
         </div>
-      </div>
+      </div>)}
      <div className='margin'>
       <form
         onSubmit={(e) => {
