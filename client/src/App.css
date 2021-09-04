@@ -1389,6 +1389,7 @@ p
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 /* End Non-Essential  */
@@ -1437,7 +1438,7 @@ p
 .property-description {
   background-color: #FAFAFC;
   height: 8em;
-  width: 32em;
+  width: 30em;
   position: absolute;
   bottom: 0em;
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
