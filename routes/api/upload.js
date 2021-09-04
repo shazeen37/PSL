@@ -189,7 +189,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/indiviual', async (req, res) => {
   try {
-    const upload = await uploads.findOne({ status: 'pending' });
+    const upload = await uploads.findOne({ status: 'Pending' });
 
     if (!upload) {
       return res.status(404).json({

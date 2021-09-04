@@ -10,6 +10,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILD,
   LOGOUT,
+  CLEAR_PROFILE,
+  SET_PROFILE_FLAG
 } from './types';
 
 //Load User
@@ -18,6 +20,13 @@ export const loadUser = () => async (dispatch) => {
     setAuthToken(localStorage.token);
   }
   try {
+    if (localStorage.profile) {
+      dispatch({
+        type: SET_PROFILE_FLAG,
+        payload: null,
+      });
+    }
+
     const res = await axios.get('/api/auth');
     dispatch({
       type: USER_LOADED,
@@ -89,4 +98,5 @@ export const login = (email, password) => async (dispatch) => {
 //Logout /clear profile
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
+  dispatch({ type: CLEAR_PROFILE });
 };

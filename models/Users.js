@@ -15,8 +15,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   avatar: {
-    type: String,
-    enum: ['//www.gravatar.com/avatar/94338554995a71496ab3870fe9505622?s=200&r=pg&d=mm']
+    type: String
   },
   type: {
     type: String,

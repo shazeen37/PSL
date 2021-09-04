@@ -2,22 +2,15 @@ import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUpload } from '../../actions/uploads';
-import { Provider } from 'react-redux';
-import store from '../../store';
-import Alerts from '../../components/layout/Alerts';
-import setAuthToken from '../../utils/setAuthToken';
-import UploadsUI from './UploadUI';
 import ReactPlayer from 'react-player';
 import './UploadsStyles.css';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import { giveReview } from '../../actions/dictionary';
 
-const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
+const Review = ({ getUpload, uploads: { upload, loading } }) => {
   useEffect(() => {
     getUpload();
   }, [getUpload]);
-  const [status, setstatus] = useState('');
   return loading || upload === null ? (
     <div>No post found to be reviewed</div>
   ) : (
@@ -41,7 +34,6 @@ const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  // giveReview({ status });
                 }}
               >
                <Link to={`/review/${upload._id}`} className='btn btn-primary my-1' >Give Review</Link>
@@ -57,9 +49,8 @@ const Review = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
 Review.propTypes = {
   getUpload: PropTypes.func.isRequired,
   uploads: PropTypes.object.isRequired,
-  giveReview: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   uploads: state.uploads,
 });
-export default connect(mapStateToProps, { getUpload, giveReview })(Review);
+export default connect(mapStateToProps, { getUpload })(Review);

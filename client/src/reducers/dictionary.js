@@ -1,4 +1,4 @@
-import { GIVE_REVIEW, REVIEW_ERROR, SEARCH, SEARCH_ERROR } from '../actions/types';
+import { GIVE_REVIEW, REVIEW_ERROR, SEARCH, SEARCH_ERROR, GET_UPLOAD } from '../actions/types';
 
 const initialState = {
   dictionary: null,
@@ -12,7 +12,12 @@ const initialState = {
 export default function (state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-
+    case GET_UPLOAD:
+      return {
+        ...state,
+        upload: payload,
+        loading: false,
+      };
     
     case GIVE_REVIEW:
       return {

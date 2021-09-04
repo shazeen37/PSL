@@ -8,6 +8,7 @@ export const LOGIN_SUCCESS = 'REGISTER_SUCCESS';
 export const LOGIN_FAILD = 'REGISTER_FAILED';
 export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
+export const SET_PROFILE_FLAG = 'SET_PROFILE_FLAG';
 export const PROFILE_ERRORS = 'PROFILE_ERRORS';
 export const GET_PROFILES = 'GET_PROFILES';
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';

@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
 
-const CreateProfile = ({ createProfile, history }) => {
+const CreateProfile = ({ createProfile, history, hasProfile }) => {
   const [formData, setFormData] = useState({
     location: '',
     status: '',
@@ -41,7 +41,9 @@ const CreateProfile = ({ createProfile, history }) => {
     createProfile(formData, history);
   };
 
-  return (
+  return hasProfile ? (
+    <Redirect to='/dashboard' />
+  ) : (
     <Fragment>
       <h1 className='large text-primary'>Create Your Profile</h1>
       <p className='lead'>
@@ -170,6 +172,11 @@ const CreateProfile = ({ createProfile, history }) => {
 
 CreateProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  hasProfile: PropTypes.bool,
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+const mapStateToprops = (state) => ({
+  hasProfile: state.profile.hasProfile,
+});
+
+export default connect(mapStateToprops, { createProfile })(withRouter(CreateProfile));

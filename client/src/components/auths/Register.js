@@ -28,7 +28,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to='/dashboard' />;
+    return <Redirect to='/Createprofile' />;
   }
   return (
     <Fragment>
@@ -82,7 +82,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           />
         </div>
 
-        <input type='submit' class='btn btn-primary' value='Register' />
+        <input type='submit' className='btn btn-primary' value='Register' />
       </form>
       <p className='my-1'>
         Already have an account? <Link to='/Login'>Sign In</Link>

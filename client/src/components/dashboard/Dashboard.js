@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loadUser } from '../../actions/auth';
 import { DashboardAction } from './DashboardAction';
 import Uploads from './Uploads';
@@ -13,7 +13,7 @@ const Dashboard = ({
   getCurrentProfile,
   deleteAccount,
   auth: { user },
-  profile: { profile, loading },
+  profile: { profile, hasProfile, loading },
 }) => {
   const [displayuserpost, toggleDUP] = useState(true);
   const [displayuserreview, toggleDUR] = useState(false);
@@ -26,6 +26,7 @@ const Dashboard = ({
     <h1 className='large text=primary'>Dashboard</h1>
   ) : (
     <Fragment>
+      {(!profile || !hasProfile) && <Redirect to='/Createprofile' />}
       {user && profile && <div className='dashboard'>
         <div className='profile-header'>
           <div className='profile-img'>
@@ -96,7 +97,7 @@ const Dashboard = ({
                 >
                   Posts
                 </li>
-                <li
+                {user.type === 'reviewer' && <li
                   onClick={() => {
                     toggleDUP(!displayuserpost);
                     toggleDUR(!displayuserreview);
@@ -104,7 +105,7 @@ const Dashboard = ({
                   className={'user-setting ' + (displayuserreview ? 'active' : '')}
                 >
                   Review
-                </li>
+                </li>}
               </ul>
             </div>
             <div className='profile-body'>

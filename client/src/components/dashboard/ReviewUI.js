@@ -4,16 +4,17 @@ import { connect } from 'react-redux';
 import { getUpload } from '../../actions/uploads';
 import ReactPlayer from 'react-player';
 import './UploadsStyles.css';
-import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import { giveReview } from '../../actions/dictionary';
+import { saveReview } from '../../actions/dictionary';
 import { RangeStepInput } from 'react-range-step-input';
 import { Alert } from 'reactstrap';
+import { useHistory } from 'react-router-dom';
 
-const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
+const ReviewUI = ({ getUpload, saveReview, uploads: { upload, loading } }) => {
   useEffect(() => {
     getUpload();
   }, [getUpload]);
+  const history = useHistory();
   const [shape, setShape] = useState('');
   const [location, setLocation] = useState('');
   const [features, setFeatures] = useState('');
@@ -29,8 +30,8 @@ const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
       <Alert color='danger' isOpen={visible} toggle={() => { setVisible(false) }}>
         Some values are missing. Please select appropriate options.
       </Alert>
-      <div className="rowG">
-        <div className="column" >
+      <div className='rowG'>
+        <div className='column' >
           <div className='containier-fluid d-flex justify-content-center'>
             <div className='card text-center shadow'>
               <div className='overflow'>
@@ -190,8 +191,12 @@ const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
             <div className='row'>
               <div className='col-accept'>
                 <button type='button' className='btn btn-primary'
-                  onClick={() => {
-                    if (shape === '' || location === '' || features === '' || orientation === '' || movement === '' || decision === '') {
+                  onClick={async () => {
+                    if (decision === 'pending') {
+                      setVisible(false);
+                      history.push('/dashboard');
+                    }
+                    else if (shape === '' || location === '' || features === '' || orientation === '' || movement === '' || decision === '') {
                       setVisible(true);
 
                       setTimeout(() => {
@@ -200,13 +205,8 @@ const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
                     }
                     else {
                       setVisible(false);
-                      console.log('shape: ', shape);
-                      console.log('location: ', location);
-                      console.log('features: ', features);
-                      console.log('orientation: ', orientation);
-                      console.log('movement: ', movement);
-                      console.log('decision: ', decision);
-                      console.log('scale: ', scale);
+                      await saveReview({ uploadId: upload._id, shape, location, features, orientation, movement, decision, scale });
+                      history.push('/dashboard');
                     }
                   }}>Submit</button>
               </div>
@@ -221,9 +221,9 @@ const ReviewUI = ({ getUpload, giveReview, uploads: { upload, loading } }) => {
 ReviewUI.propTypes = {
   getUpload: PropTypes.func.isRequired,
   uploads: PropTypes.object.isRequired,
-  giveReview: PropTypes.func.isRequired,
+  saveReview: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   uploads: state.uploads,
 });
-export default connect(mapStateToProps, { getUpload, giveReview })(ReviewUI);
+export default connect(mapStateToProps, { getUpload, saveReview })(ReviewUI);

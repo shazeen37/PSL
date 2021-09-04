@@ -23,7 +23,7 @@ const UploadSchema = new Schema(
     },
     status: {
       type: String,
-      default: 'pending',
+      default: 'Pending',
     },
     rating: {
       type: Number,

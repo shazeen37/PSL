@@ -17,7 +17,7 @@ router.post(
 
     try {
       const user = await Users.findById(req.user.id).select('-password');
-      const upload = await Upload.findOne({ status: 'pending' });
+      const upload = await Upload.findOne({ status: 'Pending' });
       upload.status = req.body.status;
       const newDictionary = new Dictionary({
         user: req.user.id,
@@ -49,10 +49,10 @@ router.get('/search/:word', async (req, res) => {
   }
 });
 //search by category
-router.get('/search/Food', async (req, res) => {
+router.get('/search/category/:category', async (req, res) => {
   try {
     const word = await Upload.find({
-      category: 'Food',
+      category: req.params.category,
     });
     res.json(word);
   } catch (err) {
