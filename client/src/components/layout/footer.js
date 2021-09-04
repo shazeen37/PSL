@@ -10,17 +10,8 @@ const footer = () => {
           
           <i className='fas fa-american-sign-language-interpreting'></i><span>Pakistan Sign Language</span></h3>
 
-    <p className="footer-links">
-    <a href="#">Home</a>
-·
-    <a href="#">Dictionary</a>
-·
-    <a href="#">Translator</a>
-·
     
-    </p>
-
-    <p className="footer-company-name">webdevtrick &copy; 2019</p>
+    <p className="footer-company-name">Pakistan sign language corpus &copy; 2020</p>
     </div>
 
     <div className="footer-center">

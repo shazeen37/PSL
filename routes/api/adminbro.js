@@ -7,6 +7,8 @@ const sentences= require('../../models/Sentences')
 const uploads = require('../../models/Uploads');
 const Dictionary = require('../../models/Dictionary');
 const Profile = require('../../models/Profile');
+const Review = require('../../models/Reviews');
+
 // We have to tell AdminBro that we will manage mongoose resources with it
 AdminBro.registerAdapter(require('admin-bro-mongoose'));
 const mongoose = require('mongoose');
@@ -21,7 +23,7 @@ const adminBro = new AdminBro({
       options: {
         parent: {
           name: 'Admin Content',
-          icon: 'fas fa-cogs',
+          icon: 'fas fa-users-cog',
         },
         actions: {
           new: {
@@ -53,25 +55,55 @@ const adminBro = new AdminBro({
     },
     { resource: sentences, options: { parent: {
       name: 'Admin Content',
-      icon: 'fas fa-cogs',
+      icon: 'fas fa-users-cog',
+    } } },
+    { resource: Review, options: { parent: {
+      name: 'Admin Content',
+      icon: 'fas fa-users-cog',
     } } },
     { resource: uploads, options: { parent: {
       name: 'Admin Content',
-      icon: 'fas fa-cogs',
+      icon: 'fas fa-users-cog',
     } } },
     { resource: Dictionary, options: { parent: {
       name: 'Admin Content',
-      icon: 'fas fa-cogs',
+      icon: 'fas fa-users-cog',
     } } },
     { resource: Profile, options: { parent: {
       name: 'Admin Content',
-      icon: 'fas fa-cogs',
+      icon: 'fas fa-users-cog',
     } } },
   ],
+
   rootPath: '/admin',
   branding: {
     companyName: 'PSL',
+    logo: false,
+    softwareBrothers: false,
+    theme: 'darkTheme',
   },
+
+  locale: {
+    translations: {
+        messages: {
+            loginWelcome: 'Administration Panel - Login' // the smaller text
+        },
+        labels: {
+            loginWelcome: 'Pakistan sign language corpus', // this could be your project name
+        },
+    }
+},
+assets: {
+    styles: ['/css/your-custom-styles.css'], // here you can hide the default images and re-position the boxes or text.
+},
+  
+dashboard: {
+  handler: async () => {
+    return { some: 'output' }
+  },
+  component: AdminBro.bundle('../../client/admindashboard')
+},
+ 
 });
 const ADMIN = {
   email: process.env.ADMIN_EMAIL || 'admin@example.com',

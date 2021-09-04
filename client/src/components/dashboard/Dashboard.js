@@ -22,6 +22,8 @@ const Dashboard = ({
     getCurrentProfile();
   }, [getCurrentProfile]);
 
+
+
   return loading && profile == null ? (
     <h1 className='large text=primary'>Dashboard</h1>
   ) : (
@@ -32,7 +34,7 @@ const Dashboard = ({
             <img src={user.avatar} alt='image 1/' width='200' />
           </div>
           <div className='profile-nav-info'>
-            <h3 className='user-name'> {user.name} </h3>
+            <h3 className='user-name'> {user.name}</h3>
             <div className='address'>
               <p className='state'>
                 {' '}
@@ -76,11 +78,6 @@ const Dashboard = ({
                   </button>
                 </Link>
               </div>
-              <div>
-                <button className='chatbtn' onClick={() => deleteAccount()}>
-                  <i className='fas fas-user-minus'></i> Delete Account
-                </button>
-              </div>
             </div>
           </div>
 
@@ -112,7 +109,7 @@ const Dashboard = ({
                 <Fragment>
                   <h1> </h1>
                   <div className='tabcontainer'>
-                    <Uploads />
+                    <Uploads id={user._id} />
                   </div>
                 </Fragment>
               )}

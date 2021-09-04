@@ -14,9 +14,9 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const Uploads = ({ getUploads, uploads: { uploads, loading } }) => {
+const Uploads = ({ getUploads,id,uploads: { uploads, loading } }) => {
   useEffect(() => {
-    getUploads();
+    getUploads(id);
   }, [getUploads]);
   return loading ? (
     <div>Loading ....</div>

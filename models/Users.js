@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
   type: {
     type: String,
     default: 'contributer',
-    enum: ['contributer', 'editor'],
+    enum: ['contributer', 'editor', 'reviewer'],
     default: 'contributer'
   },
   status: {

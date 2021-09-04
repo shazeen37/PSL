@@ -21,12 +21,6 @@ const UploadUI = ({
       <p className='post-date'>
         Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>
-      <Link to='/edit-Upload' className='btn btn-light'>
-        <i className='far fa-edit text-primary'></i> Edit
-      </Link>
-      <Link to='/delete' className='btn btn-light'>
-        <i className='far fa-trash-alt text-primary'></i> Delete
-      </Link>
     </div>
   </div>
 );

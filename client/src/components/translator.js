@@ -10,7 +10,7 @@ export const Translator = () => {
     var test = encodeURIComponent(sentence);
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/http://206.189.152.188/psl-engtosign/psl/getpsl.php?sentence=${test}`
+        `https://safe-headland-06490.herokuapp.com/http://ec2-54-203-215-115.us-west-2.compute.amazonaws.com/psl-engtosign/psl/getpsl.php?sentence=${test}`
       )
       .then(function (res) {
         console.log(res.data);

@@ -12,11 +12,13 @@ export default class FilesUploadComponent extends Component {
     this.onFileChange = this.onFileChange.bind(this);
 
     this.onNameChange = this.onNameChange.bind(this);
+    this.onRegionChange = this.onRegionChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       video: '',
       gestureName: '',
       selectFile: null,
+      Region:'',
       loaded: 0,
     };
   }
@@ -32,6 +34,11 @@ export default class FilesUploadComponent extends Component {
     console.log(e.target.value);
     //console.log('The link was clicked.');
   }
+  onRegionChange(e) {
+    this.setState({ Region: e.target.value });
+    console.log(e.target.value);
+    //console.log('The link was clicked.');
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -40,6 +47,7 @@ export default class FilesUploadComponent extends Component {
     console.log('type: ', typeof this.state.video);
     formData.append('video', this.state.video, this.state.video.name);
     formData.append('gestureName', this.state.gestureName);
+    formData.append('Region', this.state.Region);
     console.log('state: ', this.state);
     axios
       .post('http://localhost:5000/api/upload', formData, {
@@ -83,8 +91,8 @@ export default class FilesUploadComponent extends Component {
               type='value'
               className='form-control'
               placeholder='Region'
-              //value={this.state.gestureName}
-             // onChange={this.onNameChange}
+               value={this.state.Region}
+               onChange={this.onRegionChange}
             />
           </div>
           <div className='custom-file'>
