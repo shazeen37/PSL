@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const formidableMiddleware = require('express-formidable');
 const AdminBro = require('admin-bro');
 const AdminBroExpressjs = require('admin-bro-expressjs');
-
+const path = require('path');
 const expressValidator = require('express-validator');
 
 //app.set('view engine', ejs);
@@ -16,7 +16,7 @@ connectDB();
 
 //Middleware
 
-app.get('/', (req, res) => res.send('API RUnning'));
+
 app.use(cors());
 app.use(bodyParser.json());
 //app.use(
@@ -35,7 +35,15 @@ app.use('/admin', require('./routes/api/adminbro'));
 app.use('/api/dictionary', require('./routes/api/dictionary'));
 app.use('/api/sentence', require('./routes/api/sentences'));
 app.use('/api/review', require('./routes/api/review'));
-
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+  }
 
 const PORT = process.env.PORT || 5000;
 
