@@ -54,7 +54,7 @@ export const Sentense = ({getsentence, givetranslation,sentence: { sentence, loa
           else{
             e.preventDefault();
             console.log('helloSs')
-          givetranslation(Ssentence,translation)}
+          givetranslation(sentence.sentence,translation)}
           
         }}
       >

@@ -68,7 +68,7 @@ router.put('/:sentence', [check('sentence', 'Sentence is required').not().isEmpt
         let query = {
             sentenceKey: req.params.sentence.toLowerCase()
         };
-
+console.log(req.params.sentence.toLowerCase())
         const sentence = await Sentence.findOne(query);
         if (!sentence) {
             res.status(404).send('Sentence not found');
